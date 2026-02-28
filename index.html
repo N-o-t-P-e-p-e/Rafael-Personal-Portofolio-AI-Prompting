@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal Portfolio - Interactive Digital Experience Builder" />
+  <title>Rafael Mikha — Digital Architect</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       CUSTOM CURSOR
+  ═══════════════════════════════════════════ -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo magnetic" id="logoBtn" aria-label="Home">
+        <span class="logo-mark">R</span>
+        <span class="logo-text">Rafael</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#about" class="nav-link magnetic" aria-label="About section">About</a></li>
+        <li><a href="#skills" class="nav-link magnetic" aria-label="Skills section">Skills</a></li>
+        <li><a href="#projects" class="nav-link magnetic" aria-label="Projects section">Projects</a></li>
+        <li><a href="#timeline" class="nav-link magnetic" aria-label="Journey section">Journey</a></li>
+        <li><a href="#contact" class="nav-link magnetic" aria-label="Contact section">Contact</a></li>
+      </ul>
+
+      <!-- Controls -->
+      <div class="nav-controls">
+        <button class="theme-toggle magnetic" id="themeToggle" aria-label="Toggle dark/light mode">
+          <span class="theme-icon sun" aria-hidden="true">☀</span>
+          <span class="theme-icon moon" aria-hidden="true">◑</span>
+        </button>
+        <button class="hamburger magnetic" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="ham-line ham-top"></span>
+          <span class="ham-line ham-mid"></span>
+          <span class="ham-line ham-bot"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+      <ul class="mobile-links" role="list">
+        <li><a href="#about" class="mobile-link" data-close-menu>About</a></li>
+        <li><a href="#skills" class="mobile-link" data-close-menu>Skills</a></li>
+        <li><a href="#projects" class="mobile-link" data-close-menu>Projects</a></li>
+        <li><a href="#timeline" class="mobile-link" data-close-menu>Journey</a></li>
+        <li><a href="#contact" class="mobile-link" data-close-menu>Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="hero" class="hero" aria-label="Hero section">
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- Floating Glows -->
+    <div class="glow-orb glow-1" aria-hidden="true"></div>
+    <div class="glow-orb glow-2" aria-hidden="true"></div>
+    <div class="glow-orb glow-3" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-item">
+        <span class="badge-dot"></span>
+        Available for work
+      </div>
+
+      <h1 class="hero-title reveal-item">
+        <span class="title-line">I craft</span>
+        <span class="title-line gradient-text">digital worlds</span>
+        <span class="title-line">that breathe.</span>
+      </h1>
+
+      <p class="hero-subtitle reveal-item">
+        <span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span>
+      </p>
+
+      <div class="hero-actions reveal-item">
+        <a href="#projects" class="btn btn-primary magnetic ripple-btn" aria-label="View my projects">
+          <span>Explore Work</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost magnetic" aria-label="Contact me">Say Hello</a>
+      </div>
+
+      <div class="hero-stats reveal-item" aria-label="Key statistics">
+        <div class="stat-item">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Years XP</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">42</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">18</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Hint -->
+    <div class="scroll-hint" aria-label="Scroll down indicator">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="about" class="about section-pad" aria-label="About section">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">The human <span class="gradient-text">behind the screen</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <!-- Avatar + Orbit -->
+        <div class="about-visual reveal-item" aria-label="Profile visualization">
+          <div class="avatar-wrapper" id="skillGalaxy">
+            <div class="avatar-glow" aria-hidden="true"></div>
+            <div class="avatar-ring ring-1" aria-hidden="true"></div>
+            <div class="avatar-ring ring-2" aria-hidden="true"></div>
+            <img
+              src="https://www.tinypixelpepe.com/wp-content/uploads/2024/01/peepoPOGGERS-1024x1024.png"
+              alt="Alex Nova avatar"
+              class="avatar-img"
+              width="140"
+              height="140"
+            />
+            <!-- Orbiting Icons -->
+            <div class="orbit orbit-1" aria-hidden="true">
+              <div class="orbit-icon" data-skill="React">⚛</div>
+            </div>
+            <div class="orbit orbit-2" aria-hidden="true">
+              <div class="orbit-icon" data-skill="Node.js">⬡</div>
+            </div>
+            <div class="orbit orbit-3" aria-hidden="true">
+              <div class="orbit-icon" data-skill="Python">🐍</div>
+            </div>
+            <div class="orbit orbit-4" aria-hidden="true">
+              <div class="orbit-icon" data-skill="TypeScript">𝓣</div>
+            </div>
+            <div class="orbit orbit-5" aria-hidden="true">
+              <div class="orbit-icon" data-skill="Figma">◈</div>
+            </div>
+            <div class="orbit orbit-6" aria-hidden="true">
+              <div class="orbit-icon" data-skill="Docker">⬛</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text">
+          <p class="about-lead reveal-item">
+            I'm a full-stack developer & creative technologist obsessed with the intersection of code, design, and human experience.
+          </p>
+          <p class="about-body reveal-item">
+            With 5+ years crafting digital products for startups and enterprises, I believe great software should feel as good as it works. Every pixel, every interaction, every micro-animation is intentional.
+          </p>
+          <p class="about-body reveal-item">
+            When I'm not building things, you'll find me exploring generative art, contributing to open source, or hiking ridgelines at dawn.
+          </p>
+
+          <div class="about-tags reveal-item" aria-label="Interests and roles">
+            <span class="tag">Full-Stack Dev</span>
+            <span class="tag">UI/UX Enthusiast</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">Creative Coder</span>
+            <span class="tag">Coffee Aficionado</span>
+          </div>
+
+          <a href="#" class="btn btn-outline magnetic ripple-btn reveal-item" aria-label="Download resume">
+            <span>Download CV</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 1v8M3 6l4 4 4-4M1 11h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SKILLS SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="skills" class="skills section-pad" aria-label="Skills section">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">02 — Skills</span>
+        <h2 class="section-title">Tech <span class="gradient-text">constellation</span></h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Skill Category Cards -->
+        <div class="skill-card glass-card reveal-item" role="article" aria-label="Frontend skills">
+          <div class="skill-card-icon" aria-hidden="true">◈</div>
+          <h3 class="skill-card-title">Frontend</h3>
+          <div class="skill-bars" aria-label="Frontend skill levels">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>React / Next.js</span>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="95"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>TypeScript</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>CSS / Animations</span>
+                <span>92%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="92"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-card reveal-item" role="article" aria-label="Backend skills">
+          <div class="skill-card-icon" aria-hidden="true">⬡</div>
+          <h3 class="skill-card-title">Backend</h3>
+          <div class="skill-bars" aria-label="Backend skill levels">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>Node.js / Express</span>
+                <span>88%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="88"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>Python / FastAPI</span>
+                <span>82%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="82"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>PostgreSQL / Redis</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-card reveal-item" role="article" aria-label="DevOps skills">
+          <div class="skill-card-icon" aria-hidden="true">⬛</div>
+          <h3 class="skill-card-title">DevOps</h3>
+          <div class="skill-bars" aria-label="DevOps skill levels">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>Docker / K8s</span>
+                <span>78%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="78"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>CI/CD Pipelines</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label">
+                <span>AWS / Vercel</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-bar-fill" data-width="75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROJECTS SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="projects" class="projects section-pad" aria-label="Projects section">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">03 — Projects</span>
+        <h2 class="section-title">Work that <span class="gradient-text">matters</span></h2>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="project-filters reveal-item" role="tablist" aria-label="Filter projects by category">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web</button>
+        <button class="filter-btn" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
+        <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI/ML</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="project-grid" id="projectGrid">
+
+        <article class="project-card glass-card tilt-card reveal-item" data-category="web" role="article" aria-label="NovaDash project">
+          <div class="project-card-img" aria-hidden="true">
+            <div class="project-placeholder" style="--hue:220">
+              <span class="placeholder-icon">⬡</span>
+            </div>
+            <div class="project-overlay">
+              <button class="project-view-btn ripple-btn" data-project="novadash" aria-label="View NovaDash project details">View Project</button>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-meta">
+              <span class="project-category">Web App</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title">NovaDash</h3>
+            <p class="project-desc">Real-time analytics dashboard with WebSocket data streaming and 3D data visualization powered by Three.js.</p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Three.js</span>
+              <span class="stack-tag">WS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass-card tilt-card reveal-item" data-category="ai" role="article" aria-label="SynthMind project">
+          <div class="project-card-img" aria-hidden="true">
+            <div class="project-placeholder" style="--hue:280">
+              <span class="placeholder-icon">◈</span>
+            </div>
+            <div class="project-overlay">
+              <button class="project-view-btn ripple-btn" data-project="synthmind" aria-label="View SynthMind project details">View Project</button>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-meta">
+              <span class="project-category">AI Tool</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title">SynthMind</h3>
+            <p class="project-desc">AI-powered content generation platform with custom fine-tuned models and an intuitive prompt engineering interface.</p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">FastAPI</span>
+              <span class="stack-tag">OpenAI</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass-card tilt-card reveal-item" data-category="mobile" role="article" aria-label="FlowFit project">
+          <div class="project-card-img" aria-hidden="true">
+            <div class="project-placeholder" style="--hue:160">
+              <span class="placeholder-icon">▲</span>
+            </div>
+            <div class="project-overlay">
+              <button class="project-view-btn ripple-btn" data-project="flowfit" aria-label="View FlowFit project details">View Project</button>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-meta">
+              <span class="project-category">Mobile App</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3 class="project-title">FlowFit</h3>
+            <p class="project-desc">Adaptive fitness tracking app with ML-powered workout recommendations and beautiful motion-driven UI.</p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">React Native</span>
+              <span class="stack-tag">TensorFlow</span>
+              <span class="stack-tag">Firebase</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass-card tilt-card reveal-item" data-category="web" role="article" aria-label="Prismatic project">
+          <div class="project-card-img" aria-hidden="true">
+            <div class="project-placeholder" style="--hue:30">
+              <span class="placeholder-icon">⬛</span>
+            </div>
+            <div class="project-overlay">
+              <button class="project-view-btn ripple-btn" data-project="prismatic" aria-label="View Prismatic project details">View Project</button>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-meta">
+              <span class="project-category">Web App</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3 class="project-title">Prismatic</h3>
+            <p class="project-desc">Collaborative design system builder with real-time multiplayer editing, version history, and component export.</p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">Next.js</span>
+              <span class="stack-tag">Liveblocks</span>
+              <span class="stack-tag">Postgres</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass-card tilt-card reveal-item" data-category="ai" role="article" aria-label="EchoLens project">
+          <div class="project-card-img" aria-hidden="true">
+            <div class="project-placeholder" style="--hue:190">
+              <span class="placeholder-icon">◉</span>
+            </div>
+            <div class="project-overlay">
+              <button class="project-view-btn ripple-btn" data-project="echolens" aria-label="View EchoLens project details">View Project</button>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-meta">
+              <span class="project-category">Computer Vision</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3 class="project-title">EchoLens</h3>
+            <p class="project-desc">Real-time object detection and scene understanding system using custom YOLOv8 models with WebGPU acceleration.</p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">YOLOv8</span>
+              <span class="stack-tag">WebGPU</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass-card tilt-card reveal-item" data-category="mobile" role="article" aria-label="NebulaWallet project">
+          <div class="project-card-img" aria-hidden="true">
+            <div class="project-placeholder" style="--hue:350">
+              <span class="placeholder-icon">◇</span>
+            </div>
+            <div class="project-overlay">
+              <button class="project-view-btn ripple-btn" data-project="nebula" aria-label="View NebulaWallet project details">View Project</button>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-meta">
+              <span class="project-category">FinTech</span>
+              <span class="project-year">2022</span>
+            </div>
+            <h3 class="project-title">NebulaWallet</h3>
+            <p class="project-desc">Non-custodial crypto wallet with DeFi aggregation, portfolio analytics, and hardware key support.</p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">React Native</span>
+              <span class="stack-tag">Web3.js</span>
+              <span class="stack-tag">Solidity</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /project-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TIMELINE SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="timeline" class="timeline-section section-pad" aria-label="Career journey section">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">04 — Journey</span>
+        <h2 class="section-title">Where I've <span class="gradient-text">been & built</span></h2>
+      </div>
+
+      <div class="timeline" role="list" aria-label="Career timeline">
+
+        <div class="timeline-item reveal-item" role="listitem">
+          <!-- Left column: dot + vertical connecting line -->
+          <div class="timeline-dot" aria-hidden="true">
+            <div class="dot-inner"></div>
+            <div class="timeline-connector">
+              <div class="connector-line"></div>
+            </div>
+          </div>
+          <!-- Right column: card -->
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <span class="timeline-year">2024 — Present</span>
+              <span class="timeline-badge current">Current</span>
+            </div>
+            <h3 class="timeline-role">Senior Full-Stack Engineer</h3>
+            <p class="timeline-company">@ Vertex Labs — San Francisco</p>
+            <p class="timeline-desc">Leading development of next-gen developer tools. Built a distributed real-time collaboration platform serving 50k+ devs.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true">
+            <div class="dot-inner"></div>
+            <div class="timeline-connector">
+              <div class="connector-line"></div>
+            </div>
+          </div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <span class="timeline-year">2022 — 2024</span>
+            </div>
+            <h3 class="timeline-role">Software Engineer II</h3>
+            <p class="timeline-company">@ Quantum Systems — Remote</p>
+            <p class="timeline-desc">Architected and shipped 3 major product features. Reduced API response time by 60% through strategic caching layers.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true">
+            <div class="dot-inner"></div>
+            <div class="timeline-connector">
+              <div class="connector-line"></div>
+            </div>
+          </div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <span class="timeline-year">2020 — 2022</span>
+            </div>
+            <h3 class="timeline-role">Frontend Developer</h3>
+            <p class="timeline-company">@ PixelForge Studio — New York</p>
+            <p class="timeline-desc">Built award-winning interactive experiences for Fortune 500 clients. Pioneered the studio's animation-first design system.</p>
+          </div>
+        </div>
+
+        <!-- Last item: no connector line -->
+        <div class="timeline-item reveal-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true">
+            <div class="dot-inner"></div>
+          </div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <span class="timeline-year">2019 — 2020</span>
+            </div>
+            <h3 class="timeline-role">Junior Developer &amp; Open Source</h3>
+            <p class="timeline-company">@ Self-employed / OSS Contributor</p>
+            <p class="timeline-desc">Launched 2 successful npm packages with 10k+ weekly downloads. Contributed to React, Vite, and several design system projects.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="contact section-pad" aria-label="Contact section">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">05 — Contact</span>
+        <h2 class="section-title">Let's build something <span class="gradient-text">extraordinary</span></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-item">
+          <p class="contact-lead">
+            Have an interesting project? Need a technical co-founder? Just want to chat about code and coffee? I'm all ears.
+          </p>
+          <div class="contact-links" aria-label="Contact links">
+            <a href="mailto:elkanarafael41@gmail.com" class="contact-link magnetic" aria-label="Send email to Alex Nova">
+              <span class="contact-link-icon" aria-hidden="true">✉</span>
+              <span>elkanarafael41@gmail.com</span>
+            </a>
+            <a href="https://github.com/N-o-t-P-e-p-e" target="_blank" rel="noopener noreferrer" class="contact-link magnetic" aria-label="GitHub profile">
+              <span class="contact-link-icon" aria-hidden="true">⬡</span>
+              <span>github.com/N-o-t-P-e-p-e</span>
+            </a>
+            <a href="https://www.linkedin.com/in/rafael-mikha-elkana-65a90438a/" target="_blank" rel="noopener noreferrer" class="contact-link magnetic" aria-label="LinkedIn profile">
+              <span class="contact-link-icon" aria-hidden="true">◈</span>
+              <span>linkedin.com/in/rafael-mikha-elkana/</span>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form glass-card reveal-item" id="contactForm" aria-label="Contact form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName" class="form-label">Name</label>
+              <input type="text" id="contactName" name="name" class="form-input" placeholder="Your name" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Email</label>
+              <input type="email" id="contactEmail" name="email" class="form-input" placeholder="your@email.com" required aria-required="true" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contactMsg" class="form-label">Message</label>
+            <textarea id="contactMsg" name="message" class="form-input form-textarea" placeholder="Tell me about your project..." required aria-required="true" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary magnetic ripple-btn" aria-label="Send message">
+            <span>Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">
+          © 2025 Rafael Mikha Elkana — crafted with ♥ and Claude AI.
+        </p>
+        <p class="footer-hint">
+          <span class="hint-key">↑↑↓↓←→←→BA</span> for a surprise
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       PROJECT MODAL
+  ═══════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Project details" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close magnetic" id="modalClose" aria-label="Close project modal">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       EASTER EGG OVERLAY
+  ═══════════════════════════════════════════ -->
+  <div class="easter-egg-overlay" id="easterEgg" aria-hidden="true" role="presentation">
+    <div class="egg-content">
+      <h2 class="egg-title">🌐 NEON CYBER MODE</h2>
+      <p class="egg-sub">You found the secret. Welcome to the grid.</p>
+      <button class="btn btn-primary magnetic ripple-btn" id="eggClose" aria-label="Deactivate cyber mode">Deactivate</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
