@@ -1,4 +1,4 @@
-# 🌐 Alex Nova — Personal Portfolio
+# 🌐 Rafael Mikha Elkana — Personal Portfolio
 
 A futuristic personal portfolio website built with pure **HTML5, CSS3, and Vanilla JavaScript**. No frameworks, no build tools — just clean, modular, performant code.
 
